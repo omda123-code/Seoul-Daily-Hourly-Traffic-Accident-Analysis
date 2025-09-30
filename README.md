@@ -81,14 +81,14 @@ The Python script `Seoul_Accidents_Analysis.py` performs:
 
 ---
 
-### 1️⃣ Correlation Heatmap
+### 1️⃣ Correlation Heatmap :
 ```python
 sns.heatmap(df[["Accidents","Fatalities","Serious_Injuries","Minor_Injuries","Reported_Injuries"]].corr(),
             annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Heatmap of Accident Variables")
 plt.savefig("images/Correlation_Heatmap.png")
-plt.show() ```
-
+plt.show() 
+```
 ![Correlation Heatmap of Accident Variables](plots/Correlation_Heatmap.png)
 
 #### Observations:
@@ -98,9 +98,8 @@ plt.show() ```
 - Minor vs Reported Injuries: -0.07
 - Fatalities vs Serious Injuries: -0.02
 
-### 2️⃣ Distribution of Injuries (Pie Chart)
+### 2️⃣ Distribution of Injuries (Pie Chart) :
 ```python
-نسخ الكود
 casualty_totals = [
     df["Fatalities"].sum(),
     df["Serious_Injuries"].sum(),
@@ -112,7 +111,8 @@ labels = ["Fatalities", "Serious Injuries", "Minor Injuries", "Reported Injuries
 plt.pie(casualty_totals, labels=labels, autopct="%1.1f%%", startangle=90)
 plt.title("Distribution of Casualties")
 plt.savefig("images/Casualty_Distribution.png")
-plt.show()```
+plt.show()
+```
 
 ![Distribution of Injuries](plots/Casualties_Distribution_Pie.png)
 
@@ -123,15 +123,15 @@ plt.show()```
 - Reported Injuries: 8.9%
 - Fatalities: 0.6%
 
-### 3️⃣ Top 10 Neighborhoods by Accidents
+### 3️⃣ Top 10 Neighborhoods by Accidents :
 ```python
-نسخ الكود
 neighborhoods = df.groupby("Neighborhood").sum().reset_index().sort_values("Accidents", ascending=False).head(10)
 sns.barplot(x="Neighborhood", y="Accidents", data=neighborhoods)
 plt.xticks(rotation=90)
 plt.title("Top 10 Neighborhoods by Accidents")
 plt.savefig("images/Top10_Neighborhoods.png")
-plt.show()```
+plt.show()
+```
 
 ![Top 10 Neighborhoods by Accidents](plots/Top10_Neighborhoods_by_Accidents.png)
 
@@ -148,25 +148,25 @@ plt.show()```
 - Hachen: 1600
 - Mia: 1590
 
-#### 4️⃣ Casualty Severity Ratio by Hour
+#### 4️⃣ Casualty Severity Ratio by Hour :
 ```python
-نسخ الكود
 plt.plot(df.groupby("Hour")["Severity_Ratio"].mean())
 plt.title("Casualty Severity Ratio by Hour")
 plt.xlabel("Hour")
 plt.ylabel("Severity Ratio")
 plt.savefig("images/Severity_Ratio_Hour.png")
-plt.show()```
+plt.show()
+```
 
 ![Casualty Severity Ratio by Hour](plots/Casualty_Severity_Ratio_by_Hour.png)
 
-#### 5️⃣ Fatality Ratio by District
+#### 5️⃣ Fatality Ratio by District :
 ```python
-نسخ الكود
 df.groupby("District")["Fatality_Ratio"].mean().plot(kind="bar")
 plt.title("Fatality Ratio by District")
 plt.savefig("images/Fatality_Ratio_District.png")
-plt.show()```
+plt.show()
+```
 
 ![Fatality Ratio by District](plots/Fatality_Ratio_by_District.png)
 
@@ -181,11 +181,20 @@ plt.show()```
 - Total Accidents by Hour (Bar chart)
 ***- All visualizations use English column names and mapped District/Neighborhood names.***
 
-📊 Power BI Dashboard (In progress)
+### 📊 Power BI Dashboard :
+
+**- Multi-page interactive dashboard (Seoul_Accidents_Dashboard.pbix)**
+***Pages:***
+
+- Overview (KPIs, trends, top districts)
+- Accidents by Time (hourly & weekday analysis)
+- Severity Analysis (casualty distribution, severity ratio)
+- Geospatial Analysis (map by districts & top neighborhoods)
+- Seasonal & Reporting Analysis (month-wise, reported injuries)
 
 ---
 
-## 💡 Insights & Recommendations
+## 💡 Insights & Recommendations :
 
 - Songpa, Gangnam, and central Seoul districts have the highest accident counts
 - Peak accident hours: 16:00 – 19:00
@@ -193,3 +202,9 @@ plt.show()```
 - Weekend accidents higher on Fridays and Saturdays
 - Safety campaigns should focus on high-accident neighborhoods during peak hours
 
+---
+
+### 👨‍💻 Prepared by :
+
+***Mohamed Emad Alhadi | Data Analyst***
+📩 mohamedemad24649@gmail.com
