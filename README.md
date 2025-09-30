@@ -1,5 +1,7 @@
 # 🚦 Seoul Daily Hourly Traffic Accident Analysis
 
+![Header](images/seoul_traffic_header.png)
+
 ## 📖 Project Overview
 This project provides a **comprehensive analysis of traffic accidents in Seoul** using original accident data.  
 The goal is to understand accident patterns, severity, and geographic distribution to support **data-driven safety decisions**.  
